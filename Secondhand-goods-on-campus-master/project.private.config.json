@@ -1,0 +1,143 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "我的",
+                    "pathName": "pages/my/my",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "首页",
+                    "pathName": "pages/shouye/shouye",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "授权登录页面",
+                    "pathName": "pages/my/mySetting/mySetting",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "发布",
+                    "pathName": "pages/post/post",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "发布详情",
+                    "pathName": "pages/my/myPostDetail/myPostDetail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "支付",
+                    "pathName": "pages/tryPay/tryPay",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "购物车",
+                    "pathName": "pages/shoppingCart/shoppingCart",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "测试",
+                    "pathName": "pages/tryPayShow/tryPayShow",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "兼职",
+                    "pathName": "pages/classify/job/job",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "工作搜索结果",
+                    "pathName": "pages/classify/job-searchResult/job-searchResult",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "物品",
+                    "pathName": "pages/classify/Goods/Goods",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/classify/thing-search/thing-search",
+                    "pathName": "pages/classify/thing-search/thing-search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "物品搜索",
+                    "pathName": "pages/classify/Goods-search/Goods-search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "搜索工作",
+                    "pathName": "pages/classify/job-search/job-search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "商家平台",
+                    "pathName": "pages/my/MerchantPlatform/MerchantPlatform",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "权限登录",
+                    "pathName": "pages/login/startin1",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
+                },
+                {
+                    "name": "pages/text/index",
+                    "pathName": "pages/my/modmyOrderDetail/modmyOrderDetail",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "科研",
+                    "pathName": "pages/classify/research/research",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "二维码",
+                    "pathName": "pages/code/code",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "获取二维码信息",
+                    "pathName": "pages/getCodeInfo/getCodeInfo",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

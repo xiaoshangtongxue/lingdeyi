@@ -1,0 +1,54 @@
+<view class="container1">
+  <swiper class="swiper"  indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}" wx:key="itemId">
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+ <!-- 搜索框 -->
+<view class="searchCount" tyle="margin: 10px 0;" bindtap="searchDetail">
+      <view class="searchCenter">
+          <icon class="text-center" color="rgba(0,0,0,0.4)" size="15" type="search"></icon>
+          <text class="text-text">搜索兼职关键词</text>
+      </view>
+</view>
+
+  <view   class="cate-content dis-flex" wx:if="{{ screenArray.length > 0 }}">
+
+  <!-- 左侧 一级分类 -->
+
+  <scroll-view class="cate-left f-28" scroll-y="{{ true }}" style="height: {{scrollHeight}}px;">
+      <text bindtap="navbarTap" style="margin-top: 20px;" class="type-nav onelist-hidden {{curNav==index ? 'selected' : ''}}" data-index="{{index}}" wx:for="{{screenArray}}" wx:key="unique">{{item}}</text>
+    </scroll-view>
+    <!-- 右侧 二级分类 -->
+    <scroll-view  sclass="cate-right b-f" scroll-top="{{ scrollTop }}" scroll-y="true" style="height: {{ scrollHeight }}px;">
+      <view   wx:if="{{childrenArray}}">
+        <view class="cate-right-cont">
+          <view class="cate-two-box">
+            <view class="cate-cont-box">
+              <view class="flex-three"  wx:for="{{childrenArray}}" wx:key="cit">
+                      <navigator   class="product_item" url="../jobDetail/jobDetail?id={{item._id}}">
+                        <view wx:if="{{item.imgArr.length > 0}}"> 
+                         <image src="{{item.imgArr[0]}}" class="product_image"></image>
+                        </view>
+                        <view wx:else > 
+                         <image src="../../../images/jzimg.jpg" class="product_image"></image>
+                        </view>
+                        <view class="product_num">
+                          <text class="change" style="font-size:35rpx; top: 16px;position: absolute;">{{item.jobName}}</text>
+                          <view style="margin-top: 32px;">
+                          <!-- <text class="textDesign" style="margin-top: 23px;">发布人:{{item.nickName}}</text> -->
+                          <text class=" grey-color" style="position: absolute; margin-top: 10px;">薪资 | {{item.jobSalary}}元</text> 
+                          </view>
+                            <text class="grey-color" style="position: absolute;top: 60px;">发布人:{{item.nickname}}</text>                  
+                        </view>
+                      </navigator>
+                  </view>
+              </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

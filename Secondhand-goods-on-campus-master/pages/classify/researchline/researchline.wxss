@@ -1,0 +1,108 @@
+
+.three{
+  display: flex;
+  height: 400rpx;
+  margin-top: -28rpx;
+}
+.productImg{
+  margin-top: 30rpx;
+  width:100%;
+  }
+.productImg image{
+  width: 100%;
+  height: 100%;
+  }
+
+.five{
+  margin-top:30rpx;
+  margin-left: 30rpx;
+ 
+}
+.five1{
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: black;
+}
+.five2{
+  font-size: 30rpx;
+  
+  
+}
+.five21{
+  display: flex;
+  flex-direction: row;
+  margin-top: 18rpx;
+  white-space:pre-wrap;
+}
+.five2_1{
+  display: inline-block;
+  width: 22%;
+  text-align: justify;
+  font-size: 28rpx;
+  color: rgb(121, 120, 120);
+  text-align-last: justify;
+}
+.five2_2{
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  padding-right: 45rpx;
+  color: rgb(121, 120, 120);
+  word-break:break-all;
+  width:60%;
+}
+
+
+.seven{
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #1E68C9;
+  background-color: white;
+  align-items: center;
+  vertical-align: center;
+}
+.seven1{
+  line-height: 80rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1E68C9;
+  color: white;
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+}
+
+/* 联系内容 */
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+}
+.contactHotel{
+  width: 562rpx;
+  height: 80rpx;
+  background: white;
+  position: absolute;
+  left: 80rpx;
+  bottom:150rpx;
+  border-radius: 10rpx;
+}
+.contactHotel .item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}

@@ -1,0 +1,63 @@
+<van-tabs animated swipeable='ture' bind:click="onClick">
+  <van-tab title="待收货">
+    <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+
+      <view class="eachEvaluate" wx:if="{{waitresultListShow}}" wx:for="{{waitresultList}}" >
+       <view class="above">
+        <view class="head">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="nameDate">
+          <text>购买物品:{{item.GoodsName}}</text>
+          <text>购买时间:{{item.BuyTime}}</text>
+        </view>
+        <view class="score">
+          <text>-￥{{item.GoodsPrice}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{waitnoResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:130px;">
+        <view class="img">
+          <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+        </view>
+        <text class="cont">您没有购买过本店物品</text>
+    </view>     
+    </scroll-view>
+  </van-tab>
+  <van-tab title="已收货">
+    <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+
+      <view class="eachEvaluate" wx:if="{{resultListShow}}" wx:for="{{resultList}}" >
+       <view class="above">
+        <view class="head">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="nameDate">
+          <text>购买物品:{{item.GoodsName}}</text>
+          <text>购买时间:{{item.BuyTime}}</text>
+        </view>
+        <view class="score">
+          <text>-￥{{item.GoodsPrice}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:130px;">
+        <view class="img">
+          <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+        </view>
+        <text class="cont">您没有购买过本店物品</text>
+    </view>   
+    </scroll-view>
+  </van-tab>
+</van-tabs>
+
+
+
+
+
+
+
+
+
+
+

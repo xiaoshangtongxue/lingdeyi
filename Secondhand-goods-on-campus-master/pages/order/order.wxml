@@ -1,0 +1,115 @@
+
+ <!-- 切换栏 -->
+ <view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange" style="height:{{deviceH-31}}px">
+  <!-- 已支付-->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" scroll-x="true">
+      <view  class="orderDetails" wx:for="{{alreadyPayment}}" >
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.orderStatus}}({{item.GoodsStatus}})</text>
+           </view>
+          <view class="orderListDetails" bindtap="alreadyPaymentDetail" wx:key="index"  id="{{index}}">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="{{item.imgArr[0]}}" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">名称： {{item['GoodsName']}}</view>
+              <view class="productQuantity">订单号： {{item['orderNo']}}</view>
+             <view class="productDate">购买时间： {{item['BuyTime']}}</view>
+            </view>
+          </view>
+          <view class="productCount">
+            <view class="productCount1">
+            <view wx:if="{{item.GoodsStatus=='待收货'}}">
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+             <text class="refMon"  bindtap="refMon" id="{{index}}">修改收货状态</text>
+            </view>
+            <view wx:if="{{item.GoodsStatus=='已收货'}}">
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+            </view>
+          </view>
+          </view>   
+      </view>   
+    </scroll-view>
+  </swiper-item>
+  <!-- 待收货 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view  class="orderDetails" wx:for="{{waitGoods}}">
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.GoodsStatus}}</text>
+           </view>
+          <view class="orderListDetails" bindtap="waitGoodsDetail" wx:key="index"  id="{{index}}">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="../../../images/logo.png" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">名称： {{item['GoodsName']}}</view>
+              <view class="productQuantity">订单号： {{item['orderNo']}}</view>
+             <view class="productDate">购买时间： {{item['BuyTime']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view class="productCount1">
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+             <text class="refMon"  bindtap="refMonWait" id="{{index}}">修改收货状态</text>
+          </view>
+
+          </view>
+            
+      </view>   
+    </scroll-view>
+  </swiper-item>
+  
+  <!--已收货-->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view  class="orderDetails" wx:for="{{alreadyGoods}}" >
+        <view bindtap="alreadyGoodsDetail" wx:key="index"  id="{{index}}">
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.GoodsStatus}}</text>
+           </view>
+          <view class="orderListDetails">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="../../../images/logo.png" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">名称： {{item['GoodsName']}}</view>
+              <view class="productQuantity">订单号： {{item['orderNo']}}</view>
+             <view class="productDate">购买时间： {{item['BuyTime']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view class="productCount1">
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+          </view>
+          </view>
+        </view>
+        <!-- <view class="product_1">
+          <view class="product_1_1" bindtap="_modJob">修改发布信息</view>
+          <view class="product_1_2">|</view>
+          <view class="product_1_1" bindtap="bindDeleteJob" id="{{index}}">删除</view>  
+        </view> -->
+      </view>   
+    </scroll-view>
+  </swiper-item>
+</swiper>
+

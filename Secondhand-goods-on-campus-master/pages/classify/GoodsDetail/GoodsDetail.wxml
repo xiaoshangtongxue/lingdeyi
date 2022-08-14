@@ -1,0 +1,120 @@
+<view class='detail'>
+<!-- 视频图片都存在 -->
+<view class="swiper">
+<view wx:if="{{detailData.imgArr.length>=1 && detailData.videoArr!==''}}"> 
+  <view wx:if="{{imgArrShow}}">
+      <swiper class="detail-image" indicator-dots="{{indicatorDots}}" bindchange="swiperChange" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{detailData.imgArr}}" wx:key="imgArr">
+        <swiper-item  bindtap="handlePrevewImage" data-url="{{item}}">
+          <image class="slide-image" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indexShow">
+      <text style="font-size: 28rpx">{{swiperIndex}}</text>
+      <text style="font-size: 24rpx">/</text>
+      <text style="font-size: 24rpx">{{detailData.imgArr.length}}</text>
+    </view>
+    <view class="indexShowvideo" bindtap="videoShow">
+      <image  src='./3.png'></image>
+      <text>播放视频</text>
+    </view>
+  </view>
+ 
+  <view wx:if="{{videoShow}}">
+    <video style="width:100%;height:400px;" src="{{detailData.videoArr}}"></video>
+    <view class="quitCount"><view class="quit" bindtap="quit">退出播放</view></view>
+  </view>
+</view> 
+</view>
+<!-- 视频存在图片不存在 -->
+<view class="swiper">
+<view wx:if="{{detailData.imgArr.length==0 && detailData.videoArr!==''}}"> 
+  <view wx:if="{{imgArrShow}}">
+      <swiper class="detail-image" indicator-dots="{{indicatorDots}}" bindchange="swiperChange" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block  wx:key="imgArr">
+        <swiper-item  >
+          <image class="slide-image" src="/images/kong.jpg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indexShowvideo" bindtap="videoShow">
+      <image  src='./3.png'></image>
+      <text>播放视频</text>
+    </view>
+  </view>
+  <view wx:if="{{videoShow}}">
+    <video style="width:100%;height:400px;" src="{{detailData.videoArr}}"></video>
+    <view class="quitCount"><view class="quit" bindtap="quit">退出播放</view></view>
+  </view>
+</view> 
+</view>
+<!-- 视频不存在图片存在 -->
+<view class="swiper">
+<view wx:if="{{detailData.imgArr.length>=1 && detailData.videoArr==''}}"> 
+  <view wx:if="{{imgArrShow}}">
+      <swiper class="detail-image" indicator-dots="{{indicatorDots}}" bindchange="swiperChange" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{detailData.imgArr}}" wx:key="imgArr">
+        <swiper-item  bindtap="handlePrevewImage" data-url="{{item}}">
+          <image class="slide-image" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indexShow">
+      <text style="font-size: 28rpx">{{swiperIndex}}</text>
+      <text style="font-size: 24rpx">/</text>
+      <text style="font-size: 24rpx">{{detailData.imgArr.length}}</text>
+    </view>
+  </view>
+</view> 
+</view>
+<!-- 视频图片都不存在 -->
+<view class="swiper">
+<view wx:if="{{detailData.imgArr.length==0 && detailData.videoArr==''}}"> 
+  <view wx:if="{{imgArrShow}}">
+      <swiper class="detail-image" indicator-dots="{{indicatorDots}}" bindchange="swiperChange" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block  wx:key="imgArr">
+        <swiper-item  >
+          <image class="slide-image" src="/images/kong.jpg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view> 
+</view>
+    <view class='detail-cont'>
+      <view class='detail-title'>物品名称：{{detailData.GoodsName}}</view>
+      <view class='detail-title'>价格：￥{{detailData.GoodsPrice}}</view>
+      <view class='detail-detail-box'>
+        <image class='detail-detail-image' src='./2.png'></image>
+      </view>
+      <view class='detail-poster'>成色：{{detailData.GoodsConditions}}</view>
+      <view class='detail-poster'>校区：{{detailData.GoodsCampus}}</view>
+      <view class='detail-poster'>产品详情：{{detailData.GoodsRemark}}</view>
+      <view class='detail-poster'>发布者：{{detailData.nickName}}</view>
+      <view class='detail-poster'>发布时间：{{detailData.time}}</view>
+      <view class='detail-poster'>联系方式：{{detailData.GoodsWay}}</view>
+      
+    </view>
+    <view class='detail-bottom'>
+      <view class='addCart' bindtap='tobuy1'>加入购物车</view>
+      <van-button class='buyNow' bindtap="tobuy"  type="danger" block>立即购买</van-button>
+
+    </view>
+</view>
+
+
+<!-- 购买数量 -->
+<van-popup show="{{show}}" bind:close="onClose" round closeable position="bottom"
+  custom-style="padding-top:25rpx;max-height: 80%;" >
+  <van-card centered price="{{ detailData.GoodsPrice }}"
+   
+    title="{{ detailData.GoodsName }}" thumb="{{detailData.imgArr}}" />
+  <van-cell title="购买数量">
+    <view>
+      <van-stepper value="{{ buyNumber }}" min="{{ buyNumMin }}" max="{{ buyNumMax }}" bind:change="stepChange" />
+    </view>
+  </van-cell>
+  <van-button wx:if="{{flag}}" class="buyNow1" bindtap="nowBuy"  type="danger" block>立即购买</van-button>
+  <van-button wx:else class="buyNow2" bindtap="addMyCart"  type="danger" block>加入购物车</van-button>
+</van-popup>

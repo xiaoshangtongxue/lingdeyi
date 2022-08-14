@@ -1,0 +1,12 @@
+
+
+<view class="member">
+  校园-跳蚤市场
+</view>
+<block wx:if="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" open-type='getUserInfo' bindtap="getUserProfile" class="impowerBtn" style="background: #1E68C9; color: white; width: 70%; font-weight: normal;">获取您的头像昵称</button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="impowerBtn" style="background: #1E68C9; color: white; width: 70%; font-weight: normal;"> 获取我的头像昵称 </button>
+</block>
+<button wx:if="{{numberShow}}"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="impowerBtn" style="background: #286DE6; color: white; width: 70%; font-weight: normal;">微信登录</button>
+
+

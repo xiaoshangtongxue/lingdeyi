@@ -1,0 +1,125 @@
+<view class="container1">
+  <!-- 搜索框 -->
+  <!-- <view class="index-search-box">
+    <navigator class="index-search " hover-class="none" openType="navigate" url="../search/index">
+      <view class="index-cont-search t-c">
+        <icon class="text-center" color="{{searchColor}}" size="{{searchSize}}" type="search"></icon>
+        <text>{{searchName}}</text>
+      </view>
+    </navigator>
+  </view> -->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}" wx:key="itemId">
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="store_nav_cont dis-flex b-f b-b" style="margin: 10px 0;">
+      <view bindtap="switchSortType" data-type="all" class="flex-box t-c p-r" data-index="0 " id="list-{{sortType==='all'?true:0}}">
+        <text style="font-size: large;">综合</text>
+      </view>
+      <view bindtap="switchSortType" data-type="sales"  class="flex-box t-c p-r" data-index="1" id="list-{{sortType==='sales'?true:0}}">
+        <text style="font-size: large;display: none;"> 全部校区</text>
+      </view>
+      <view  bindtap="switchSortType" data-type="price" class="flex-box t-c p-r" data-index="2" id="list-{{sortType==='price'?true:0}}">
+        <text style="font-size: large;"> 价格</text>
+        <text class="iconfont icon-jiantou-copy tf-180 top_jiantou {{sortPrice?'':'active'}}"></text>
+        <text class="iconfont icon-jiantou-copy bot_jiantou {{sortPrice?'active':''}}"></text>
+      </view>
+
+      <!-- <view bindtap="toSynthesize" class="flex-box t-c p-r" data-index="sort_order" id="list-0">
+        <text>筛选 </text>
+        <text class="f-22 iconfont icon-shaixuan1 col-7" style="padding-left:2rpx"></text>
+      </view> -->
+
+    </view>
+    <view class="school dis-flex b-f b-b" style="border:none;z-index: 10;">
+    <view bindtap="switchSortType" data-type="sales" style="margin-top: -9px;" class="flex-box t-c p-r" data-index="1" id="list-{{sortType==='sales'?true:0}}">
+      <view  class='list-msg2' bindtap='bindShowMsg'>
+        <text   style="font-size: large;">{{school}}</text>
+        <!-- <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image> -->
+      </view>
+      <view class="select_box"  wx:if="{{select}}">
+        <view class="select_one"  bindtap="mySelect" data-name="坞城校区">坞城校区</view>
+        <view class="select_one" bindtap="mySelect" data-name="东山校区">东山校区</view>
+        <view class="select_one" bindtap="mySelect" data-name="大东关校区">大东关校区</view>
+      
+    </view>
+      </view>
+
+    </view>
+
+  <view   class="cate-content dis-flex" wx:if="{{ screenArray.length > 0 }}">
+    <!-- 左侧 一级分类 -->
+    <scroll-view class="cate-left f-28" scroll-y="{{ true }}" style="height: {{scrollHeight}}px;">
+      <text bindtap="navbarTap" style="margin-top: 20px;" class="type-nav onelist-hidden {{curNav==index ? 'selected' : ''}}" data-index="{{index}}" wx:for="{{screenArray}}" wx:key="unique">{{item}}</text>
+    </scroll-view>
+
+    <!-- 右侧 二级分类 -->
+    <scroll-view  sclass="cate-right b-f" scroll-top="{{ scrollTop }}" scroll-y="true" style="height: {{ scrollHeight }}px;">
+      <view   wx:if="{{screenArray}}">
+        <view class="cate-two-box">
+            <view class="cate-cont-box">
+              <view class="flex-three" data-list="{{index}}" wx:for="{{childrenArray}}" wx:key="cit">
+    <!-- <view wx:if ="{{screenArray[item.ptjobConditionIndex] !=="食堂外卖" && screenArray[item.ptjobConditionIndex] !=="水果代购" && screenArray[item.ptjobConditionIndex] !=="超市代购" && screenArray[item.ptjobConditionIndex] !=="快递代取"}}">
+    </view> -->
+    <view wx:if ="{{!item.isptjob}}">
+      <van-card 
+            tag="{{item.Package_no}}"
+            desc="主营:{{item.Package_detail}}"
+            title="{{item.Package_name}}"
+            thumb="{{item.imgArr[0]}}"
+            thumb-link="/pages/classify/saleDetail/saleDetail?id={{item._id}}"
+      />
+    </view>
+    <view wx:else>
+      <navigator  class="product_item" url="../show/show?id={{item._id}}&ptopenId={{item._openid}}">
+                        <image src="../../../images/logo.png" class="product_image"></image>
+                        <view class="product_num">
+                          <text style="font-size:35rpx; top: 16px;position: absolute;font-weight: 600;">{{item.ptplaceSelect}}</text>
+                          <view style="margin-top: 32px;">
+                 
+                          <text class=" grey-color" style="position: absolute; margin-top: 10px;">费用 | {{item.ptservePrice}}元</text> 
+                          </view>
+                            <text class="grey-color" style="position: absolute;top: 60px;">送达时间:{{item.ptjobTime}}</text>                  
+                        </view>
+                      </navigator>
+    </view>
+</view>
+  </view>
+    </view>
+      </view>
+
+       <!-- <view   wx:if="{{screenArray}}">
+        <view class="cate-right-cont">
+          <view class="cate-two-box">
+            <view class="cate-cont-box">
+              <view class="flex-three" data-list="{{index}}" wx:for="{{childrenArray}}" wx:key="cit">
+                      <navigator class="product_item" url="../show/show?id={{item._id}}&ptopenId={{item._openid}}">
+                        <image src="../../../images/logo.png" class="product_image"></image>
+                        <view class="product_num">
+                          <text style="font-size:35rpx; top: 16px;position: absolute;font-weight: 600;">{{item.ptplaceSelect}}</text>
+                          <view style="margin-top: 32px;">
+                 
+                          <text class=" grey-color" style="position: absolute; margin-top: 10px;">费用 | {{item.ptservePrice}}元</text> 
+                          </view>
+                            <text class="grey-color" style="position: absolute;top: 60px;">送达时间:{{item.ptjobTime}}</text>                  
+                        </view>
+                      </navigator>
+                  </view>
+      
+              </view>
+          </view>
+        </view>
+      </view>  -->
+    </scroll-view>
+  </view>
+  <view wx:if="{{ !list.length && notcont }}">
+    <view class="xiaoxiangshop-notcont">
+      <text class="iconfont icon-wushuju"></text>
+      <text class="cont">亲，暂无商品分类哦</text>
+    </view>
+  </view>
+
+</view>

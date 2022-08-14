@@ -1,0 +1,97 @@
+<import src="/templates/star-rate.wxml" />
+<import src="templates/goods-actions.wxml" />
+<import src="templates/sub-goods.wxml" />
+
+<!--pages/shop/show.wxml-->
+<view class="shop-show">
+  <view class="shop-info weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb shop-info__pic" src="../../../images/logo.png" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{info.name}}</view>
+          <view class="weui-media-box__desc shop-info__desc">
+            <view>
+              {{info.ptservePrice}}元起送 | 送达时间 {{info.ptjobTime}} | 联系电话 {{info.ptjobPhoneNumber}}
+            </view>
+            <view wx:if="{{info.notice}}">
+              公告: {{info.notice}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="shop-content">
+    <view class=" weui-tab weui-tab_shop">
+      <view class="weui-navbar">
+        <view wx:for="{{tabs}}" wx:key="*this" id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+
+        </view>
+        
+      </view>   
+      <block >
+     <view class="box1"> 
+      <view class="box_top">发布者信息</view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">发布者昵称:</view>
+        <view class="left">{{info.nickname}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">联系电话:</view>
+
+        <view >{{info.ptjobPhoneNumber}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">送达地址:</view>
+        <view >{{info.ptjobPlace}}</view>
+      </view>
+    </view>
+    <view class="box">
+      <view class="box_top">商品信息</view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">商品类型:</view>
+        <view>{{info.ptplaceSelect}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">商品介绍:</view>
+        <view >{{info.ptjobName}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">商品价格:</view>
+        <view >{{info.ptjobPrice}}元</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">送达时间:</view>
+        <view >{{info.ptjobTime}}</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left">服务费用:</view>
+        <view >{{info.ptservePrice}}元</view>
+      </view>
+      <view class="line"></view>
+      <view class="box_center">
+        <view class="left" >备注信息:</view>
+        <view >{{info.ptjobDescribe}}</view>
+      </view>
+    </view>
+  </block> 
+     
+    </view>
+  </view>
+
+  <button bindtap='nowaddptpost'>接单</button>
+</view>

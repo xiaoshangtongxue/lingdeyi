@@ -1,0 +1,282 @@
+/* pages/shoppingCart/shoppingCart.wxss */
+.wrapper {
+  position: fixed;
+  top: 0rpx;
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 9999;
+}
+.xiaoxiangshop-notcont {
+  margin: 50rpx;
+
+
+}
+.xiaoxiangshop-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.category-list.arrange .list .left .img image {
+  width: 220rpx;
+  height: 220rpx;
+ 
+}
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  color: blue;
+  border-bottom: 4rpx solid blue;
+  height: 80rpx;
+
+}
+.noSelect {
+  width: 50%;
+  text-align: center;
+}
+.cart-box {
+   margin-top: 20rpx;
+  margin-bottom: 100rpx;
+}
+.cart-goods {
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+  border-bottom: 3rpx solid #e6e6e6;
+}
+.icon-wrapper {
+  line-height: 260rpx;
+}
+ .cart-icon {
+    display: inline-block;
+    margin: auto 10rpx;
+    margin-left: -10rpx;
+  }
+ .cart-img {
+  display: flex;
+  width: 580rpx;
+  height: 260rpx;
+}
+.cart-img image{
+  margin: auto 0rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.productImg{
+  display: flex;
+ justify-content: center;
+}
+.productImg image{
+  width: 180rpx;
+  height: 180rpx;
+}
+ .cart-goods .cart-message {
+  width: 380rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx;
+  justify-content: space-around; 
+}
+ .name{
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.name1{
+  font-weight: 600;
+  color: #9e9e9e;
+  font-size: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+ .author,
+ .press{
+    font-size: 28rpx;
+    color: #9e9e9e;
+    font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+  }
+  .price {
+    font-size: 28rpx;
+    color: #f40;
+    font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+  }
+  .price1 {
+    font-size: 28rpx;
+    color:#9e9e9e;
+    font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+  }
+  .delete {
+    position: absolute;
+    right: 40rpx;
+    margin-top: -10rpx;
+  }
+  /* 底部 */
+  .cart-bottom {
+    position: fixed;
+    width: 100%;
+    height: 100rpx;
+    background-color: white;
+    bottom: 0rpx;
+    z-index: 99;
+  }
+  .cart-allPrice {
+  float:left;
+   padding: 0.5rem;
+    font-weight: 100;
+    margin-left: 70rpx;
+  }
+  .allPrice {
+     float:left;
+    padding: 0.5rem;
+    font-weight: 100;
+   margin-left: -30rpx;
+   color: #f40;
+  }
+  .cart-allSelect {
+    float:left;
+    padding: 0.5rem;
+    margin-left: -23rpx;
+     font-weight: 100
+  }
+  .cart-iconAll {
+    float:left;
+    padding: 0.5rem;
+   margin-top: 7rpx;
+  }
+  .btn-red {
+  background-color: #f44336; /* 红色 */
+  font-size: 40rpx;
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+/* .btn-red button {
+ 
+} */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+.bottom {
+ 
+  color: #666;
+  text-align: center;
+  font-size: 30rpx;
+
+}
+/* 结算按钮弹窗 */
+.toast-box {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.toastbg {
+  opacity: 0.2;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.showToast {
+  position: absolute;
+  opacity: 1;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 40%;
+}
+
+.toast-title {
+  padding-left: 5%;
+  background-color: #2196f3;
+  color: white;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-top-right-radius: 16rpx;
+  border-top-left-radius: 16rpx;
+}
+
+.toast-main {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 200rpx;
+}
+.toast-main text{
+  margin-left: 20rpx;
+}
+.toast-main input {
+  float: right;
+  vertical-align:middle;
+  margin-top: -9rpx;
+  height: 60rpx;
+}
+
+.toast-button {
+  display: flex;
+}
+
+.button1 {
+  width: 50%;
+}
+
+.button2 {
+  width: 50%;
+}
+
+.button1 button {
+  width: 100%;
+  background-color: white;
+  color: red;
+  border-radius: 0px;
+  border-bottom-left-radius: 16rpx;
+}
+
+.button2 button{
+  width: 100%;
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border-bottom-right-radius: 16rpx;
+}
+
+.picker {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}

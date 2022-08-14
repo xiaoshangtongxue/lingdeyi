@@ -1,0 +1,66 @@
+<van-tabs animated swipeable='ture' bind:click="onClick">
+  <van-tab title="正在进行...">
+    <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{startData}}" >
+          <view class="orderListTitle">
+            <text class="userName">校园-跑腿服务</text>
+           <text class="orderStatus">正在进行...</text>
+           </view>
+          <view class="orderListDetails" bindtap="startDataDetail" wx:key="index"  id="{{index}}">
+            <view wx:if="true"  class="productImg">
+              <image src="/images/logo.png" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="{{item.imgArr[0]}}" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">跑腿类型： {{item['ptType']}}</view>
+              <view class="productQuantity">校区： {{item['ptjobCampus']}}</view>
+             <view class="productDate">接单时间： {{item['ordertime']}}</view>
+            </view>
+          </view>
+          <view class="productCount">
+            <view class="productCount1">
+             <text>价格：￥{{item['ptservePrice']}}</text>
+             <!-- <text class="refMon"  bindtap="refMon" id="{{index}}">修改收货状态</text> -->
+            <!-- <view wx:if="{{item.GoodsStatus=='已收货'}}">
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+            </view> -->
+          </view>
+          </view>   
+      </view>   
+    </scroll-view>
+  </van-tab>
+  <van-tab title="已完成">
+    <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{endData}}">
+          <view class="orderListTitle">
+            <text class="userName">校园-跑腿服务</text>
+           <text class="orderStatus1">已完成</text>
+           </view>
+          <view class="orderListDetails"  wx:key="index"  id="{{index}}">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/logo.png" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="../../../images/logo.png" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">跑腿类型： {{item['ptType']}}</view>
+              <view class="productQuantity">校区： {{item['ptjobCampus']}}</view>
+             <view class="productDate">接单时间： {{item['ordertime']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view class="productCount1">
+              <text>价格：￥{{item['ptservePrice']}}</text>
+          </view>
+
+          </view>
+            
+      </view>   
+    </scroll-view>
+  </van-tab>
+</van-tabs>
+
+ 

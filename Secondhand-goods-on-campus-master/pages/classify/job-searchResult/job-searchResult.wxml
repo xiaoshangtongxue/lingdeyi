@@ -1,0 +1,31 @@
+<view class="container">
+   <view  class="{{indexSearch? 'topnavFixed' : 'topnavAbsolute'}}" bindtap="searchDetail">
+        <view class="searchCenter">
+          <icon class="text-center" color="rgba(0,0,0,0.4)" size="15" type="search"></icon>
+          <text class="text-text">搜索兼职关键词</text>
+        </view>
+   </view>
+   <view  wx:if="{{resultListShow}}" class='search-list'>
+    <block wx:for="{{resultList}}" wx:key="{{resultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail'>
+      <view class='movie-content'>
+        <view class='poster'>
+          <image  src='/images/jzimg.jpg' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>工作名称：{{item.jobName}}</text>
+            <text class='desc'>工作地点:{{item.jobPlace}}</text>
+            <text class='desc'>工资薪酬:{{item.jobSalary}}</text>
+        </view>
+      </view>
+    </view>
+    </block>
+</view>
+<view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:40px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont">亲, 没有相关内容</text>
+</view>
+
+</view>

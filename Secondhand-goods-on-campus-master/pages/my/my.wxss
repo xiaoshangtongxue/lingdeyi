@@ -1,0 +1,77 @@
+/* pages/my/my.wxss */
+
+@import "../../style/weui.wxss";
+
+page {
+  background-color: #f0eff4;
+}
+
+.top {
+  background-color: #fff;
+  height: 200rpx;
+}
+.content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+}
+.head{
+  left: 0rpx;
+  height: 150rpx;
+  width: 150rpx;
+  margin-left: 25rpx;
+  border-radius: 50%;
+}
+.name{
+  font-size: 50rpx;
+  margin-left:30rpx;
+  font-weight: 800;
+}
+.btm {
+  border: 0;
+  border-radius: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 38rpx;
+  color: #e94f4f;
+  background-color: #fff;
+}
+.weui-cell__bd_button{
+  border:none;
+  border-color:transparent;
+  background:none!important;
+  margin-left:-34rpx;
+  font-size: 33rpx;
+  width:200rpx;
+  height:60rpx;
+  margin-top:-20rpx;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+.weui-cell__bd_button::after{
+  border:none;
+  background:none!important;
+  padding-left: 0rpx;
+}
+.button{
+  border:none;
+  border-color:transparent;
+  background:none!important;
+  margin-right:0rpx;
+  font-size: 33rpx;
+  width:50rpx;
+  height:60rpx;
+  margin-top:-20rpx;
+  color:  #C8C8CD
+
+}
+.border{
+  border-bottom: 1rpx solid #D9D9D9;
+}
+.button:after{
+  border:none;
+  background:none!important;
+}
+

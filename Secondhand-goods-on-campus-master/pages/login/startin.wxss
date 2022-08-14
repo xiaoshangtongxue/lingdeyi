@@ -1,0 +1,16 @@
+.member{
+  border: 1px solid #0C2D4E;
+  color: #0C2D4E;
+  width: 60%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  margin: 250rpx auto;
+  font-family: SimSun;
+  font-size: 50rpx;
+}
+.impowerBtn{
+  position: absolute;
+  top: 45%;
+  left: 15%;
+}

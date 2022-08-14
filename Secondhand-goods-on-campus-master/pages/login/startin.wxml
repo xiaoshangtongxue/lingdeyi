@@ -1,0 +1,7 @@
+<!-- <view>{{token}}</view> -->
+<!-- <button size='default' type="primary" bindtap="loginIn">点击</button> -->
+<!-- <view class="member">
+  校园-跳蚤市场
+</view> -->
+<!-- <button wx:if="{{UserInfoShow}}" open-type='getUserInfo' bindtap="getUserProfile" class="impowerBtn" style="background: #1E68C9; color: white; width: 70%; font-weight: normal;">获取您的头像昵称</button> -->
+<!-- <button bindtap="loginIn" class="impowerBtn" style="background: #286DE6; color: white; width: 70%; font-weight: normal;">授权验证</button> -->

@@ -1,0 +1,56 @@
+
+<view  class='total' wx:if="{{openid == sellopenid}}" >
+  <!-- <van-dialog id="van-dialog" /> -->
+<view style="font-size:40rpx; padding-top:30rpx; padding-left: 30rpx;">  
+  <text>订餐信息</text>
+</view>
+
+<view class="one">
+  <text style="display:block; border-bottom: 1px solid rgba(216, 215, 215, 0.705); padding-bottom: 20rpx;">订餐人信息</text>
+  <view class="customInf">
+      <text>姓名：</text>
+      <input disabled="ture"  type="text" placeholder="请输入姓名" maxlength='20' bindblur="_handleInputName" value="{{message.nickName}}"></input>
+  </view>
+  <view class="customInf">
+    <text>联系方式：</text>
+    <input disabled="ture" type="text" placeholder="请输入联系方式" maxlength='20' bindblur="_handleInputPhone" value="{{message.buyphone}}"></input>
+  </view>
+  <view class="customInf">
+    <text style="margin-top: 6px;">取餐时间：</text>
+    <input disabled="ture" type="text" placeholder="请输入联系方式" maxlength='20'  value="{{message.Package_time}}"></input>
+  </view>
+  <view class="customInf">
+    <text style="margin-top: 6px;">订餐时间:</text>
+    <input disabled="ture" type="text" placeholder="请输入联系方式" maxlength='20'  value="{{message.BuyTimeStamp}}"></input>
+  </view>
+  <view class="customInf">
+    <text  style="margin-top: 3px;">备注：</text>
+    <input type="text" disabled="ture" placeholder="请输入备注信息" maxlength='20' bindblur="_handleInputNote" value="{{message.Note}}"></input>
+  </view>
+</view>
+<view class="second">
+  <text style="display:block; border-bottom: 1px solid rgba(216, 215, 215, 0.705); padding-bottom: 20rpx;">餐品信息</text>
+  <view  class="orderDetails"  >
+        <view  wx:key="index"  id="{{index}}">
+          <view class="orderListDetails">
+            <view class="productInfo">
+              <!-- <view class="productQuantity">套餐： {{item['Package_no']}}</view>
+            <view class="productQuantity">名称： {{item['Package_name']}}</view> -->
+            <view class="productDate">订餐详情： {{message.Package_food}}</view>
+            <!-- <view class="productQuantity">校区： {{item['ptjobCampus']}}</view> -->
+            <!-- <canvas class="myQrcode"  style="width: 450rpx; height: 450rpx; margin-top: 100px;" canvas-id="myQrcode"></canvas> -->
+          </view>
+          </view>
+          <view class="productCount">
+            数量：<text>{{ message.buyLen}}  </text>
+          </view>
+      
+        </view>
+</view> 
+<button type="{{Takefood == false? 'primary':'warn'}}" disabled="{{Takefood}}" bindtap="Takefood">{{Takefood == false? '未取餐':'已取餐'}}</button>
+</view>
+</view>
+<view wx:else>
+    <van-dialog id="van-dialog" />
+</view>
+

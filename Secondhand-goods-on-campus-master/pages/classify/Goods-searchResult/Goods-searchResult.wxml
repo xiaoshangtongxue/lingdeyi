@@ -1,0 +1,38 @@
+<!--pages/search-thing-result/search-thing-result.wxml-->
+<view class="container">
+   <view  class="{{indexSearch? 'topnavFixed' : 'topnavAbsolute'}}" bindtap="searchDetail">
+        <view class="searchCenter">
+          <icon class="text-center" color="rgba(0,0,0,0.4)" size="15" type="search"></icon>
+          <text class="text-text">搜索商品</text>
+        </view>
+   </view>
+<view  wx:if="{{resultListShow}}" class='search-list'>
+    <block wx:for="{{resultList}}" wx:key="{{resultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail'>
+      <view class='movie-content'>
+        <view class='poster' wx:if="{{item.imgArr<=0}}">
+          <image src="/images/kong.jpg" ></image>
+        </view>
+        <view class='poster'wx:else>
+          <image  src='{{item.imgArr[0]}}' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>物品名称：{{item.GoodsName}}</text>
+            <text class='desc'>校区：{{item.GoodsCampus}}</text>
+            <text class='desc'>成色：{{item.GoodsConditions}}</text>
+            <text class='desc'>库存：{{item.GoodsNum}}</text>
+            <text class='price'>价格：￥{{item.GoodsPrice}}</text>
+        </view>
+      </view>
+    </view>
+    </block>
+</view>
+<view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:40px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view>
+
+
+</view>

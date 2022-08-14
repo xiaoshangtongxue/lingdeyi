@@ -1,0 +1,111 @@
+<van-tabs animated swipeable='ture' bind:click="onClick">
+  <van-tab title="百货">
+    <scroll-view scroll-top="{{ scrollTop }}" class="hot-box" scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{goodPost}}" >
+        <view bindtap="goToGoodPostDetail" wx:key="index"  id="{{index}}">
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.status}}</text>
+           </view>
+          <view class="orderListDetails">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="{{item.imgArr[0]}}" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+            <view class="productQuantity">名称： {{item['GoodsName']}}</view>
+            <view class="productDate">发布时间： {{item['time']}}</view>
+            <view class="productQuantity">联系方式： {{item['GoodsWay']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view>
+             <text>价格：￥{{item['GoodsPrice']}}</text>
+          </view>
+          </view>
+        </view>     
+        <!-- <view class="product_1">
+          <view class="product_1_1" bindtap="_modBook">修改发布信息</view>
+          <view class="product_1_2">|</view>
+          <view class="product_1_1" bindtap="bindDeleteBook" id="{{index}}">删除</view>  
+        </view> -->
+      </view>   
+    </scroll-view>
+  </van-tab>
+  <van-tab title="跑腿">
+    <scroll-view  scroll-top="{{ scrollTop }}" class="hot-box" scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{paotuiPost}}" >
+        <view>
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.status}}</text>
+           </view>
+          <view bindtap="goToptJobDetail"  wx:key="index"  id="{{index}}" class="orderListDetails">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="../../../images/logo.png" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+            <view class="productQuantity">跑腿类型： {{item['ptType']}}</view>
+            <view class="productDate">发布时间： {{item['time']}}</view>
+            <view class="productQuantity">联系方式： {{item['ptjobPhoneNumber']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view>
+             <text style="margin-right: 110px;">价格：￥{{item['ptservePrice']}}</text>
+            </view>
+            <view bindtap="ptJobdetermine" wx:key="index"  id="{{index}}">
+              <button  disabled="{{item['sureOrder']}}" style="position: absolute;right:5px;margin-top: 5px;" size="mini" type="warn" >{{item['sureOrderstatus']}}</button>
+            </view>
+        
+          
+          </view>
+        </view>     
+        <!-- <view class="product_1">
+          <view class="product_1_1" bindtap="_modThing">修改发布信息</view>
+          <view class="product_1_2">|</view>
+          <view class="product_1_1" bindtap="bindDeleteThing" id="{{index}}">删除</view>  
+        </view> -->
+      </view>   
+    </scroll-view>
+  </van-tab>
+  <van-tab title="兼职">
+    <scroll-view scroll-top="{{ scrollTop }}" class="hot-box" scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{jobPost}}" >
+        <view bindtap="goToJobPostDetail" wx:key="index"  id="{{index}}">
+          <view class="orderListTitle">
+            <text class="userName">校园-跳蚤市场</text>
+           <text class="orderStatus">{{item.status}}</text>
+           </view>
+          <view class="orderListDetails">
+            <view class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+            <view class="productQuantity">工作名称： {{item['jobName']}}</view>
+            <view class="productDate">发布时间： {{item['time']}}</view>
+            <view class="productQuantity">联系方式： {{item['jobWay']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            <view>
+             <text>薪资福利：{{item['jobSalary']}}</text>
+          </view>
+          </view>
+        </view>     
+        <!-- <view class="product_1">
+          <view class="product_1_1" bindtap="_modJob">修改发布信息</view>
+          <view class="product_1_2">|</view>
+          <view class="product_1_1" bindtap="bindDeleteJob" id="{{index}}">删除</view>  
+        </view> -->
+      </view>   
+    </scroll-view>
+  </van-tab>
+</van-tabs>
+
+ 

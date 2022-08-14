@@ -1,0 +1,27 @@
+<!--pages/orderForm/orderForm.wxml-->
+<view class="big">
+
+  <!-- <view class="one"> {{orderFormInf.orderStatus}}({{orderFormInf.GoodsStatus}})</view> -->
+  <view class="three">
+    <view wx:if="{{newsInf.img==''}}"  class="productImg">
+      <image src="/images/kong.jpg" background-size="cover"></image>
+    </view>
+    <view wx:else class="productImg">
+      <image  src="{{newsInf.img}}" background-size="cover"></image>
+    </view>
+  </view>
+  <view class="five">
+
+    <view >
+      <view >
+        <text >{{newsInf['title']}}</text>
+      </view>
+      <view >
+        <text class="five2_2">{{newsInf['Cotent']}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+

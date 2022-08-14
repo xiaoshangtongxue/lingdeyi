@@ -1,0 +1,240 @@
+<!--pages/shouye/shouye.wxml-->
+<import src="../components/news/news.wxml"></import>
+
+<!-- 首页的轮播图 -->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}" wx:key="itemId">
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 搜索框 -->
+<view class='sousuo' bindtap='bindSearchGoods' >
+  <image src='/images/shouye/sousuo.png'></image>
+</view>
+<!-- 通知栏的模板 -->
+<view class='templateNews'>
+  <template is="theNews" data="{{msgList}}"></template>
+</view>
+<!-- 分类 -->
+<view class='fenlei'>
+  <navigator url='../classify/Goods/Goods' class='navi navi-zahuopu'>
+    <view class='leibie fenlei-zahuopu'>
+      <image src='../../images/fenlei/baihuo1.png'></image>
+      <view>校园市场</view>
+    </view>
+  </navigator>
+  <navigator url='../classify/job/job' class='navi navi-jianzhi'>
+    <view class='leibie fenlei-jianzhi'>
+      <image src='../../images/fenlei/jianzhi1.png'></image>
+      <view>校园兼职</view>
+    </view>
+  </navigator>
+  <navigator url='/pages/classify/sale/index' class='navi navi-jishou'>
+    <view class='leibie fenlei-jishou'>
+      <image src='../../images/fenlei/paotui.png'></image>
+      <view>校园跑腿</view>
+    </view>
+  </navigator>
+  <navigator url='/pages/classify/research/research' class='navi navi-gongyi'>
+    <view class='leibie fenlei-gongyi'>
+      <image src='../../images/fenlei/gongyi1.png'></image>
+      <view>校园科研</view>
+    </view>
+  </navigator>
+
+</view>
+<!-- 今日推荐 -->
+
+ <!-- 推荐好书 -->
+<!--  <view class='tuijian-img'>
+  <text class='tuijian-cont'>今日推荐</text>
+  <image src='../../images/tuijian.png'></image>
+</view>
+<view class='cont'>
+  <view class='session-page'>
+    <view class='session-header'>
+      <text class='header-title'>推荐好物</text>
+      <text class='header-more' bindtap='bindToMoreGoods'>更多></text>
+    </view>
+  </view>
+  <view class='session-page'>
+    <view class='session-header'>
+      <text class='header-title'>推荐兼职</text>
+      <text class='header-more' bindtap='bindToMoreJob'>更多></text>
+    </view>
+  </view>
+</view> -->
+ <!-- 切换栏 -->
+<!--  
+  <view class="swiper-tab" tyle="margin: 20px 0;">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+ </view>
+
+ 
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange" style="height:{{deviceH-31}}px">
+
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" scroll-x="true">
+      <view  wx:if="{{resultListShow}}" class='search-list'>
+    <view wx:for="{{resultList}}" wx:key="{{resultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail'>
+      <view class='movie-content'>
+        <view class='poster' wx:if="{{item.imgArr<=0}}">
+          <image src="/images/kong.jpg" ></image>
+        </view>
+        <view class='poster' wx:else>
+          <image  src='{{item.imgArr[0]}}' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>物品名称：{{item.GoodsName}}</text>
+            <text class='desc'>校区：{{item.GoodsCampus}}</text>
+            <text class='desc'>成色：{{item.GoodsConditions}}</text>
+            <text class='desc'>库存：{{item.GoodsNum}}</text>
+            <text class='price'>价格：￥{{item.GoodsPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+ </view> 
+ <view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view>
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view  wx:if="{{hotsaleresultListShow}}" class='search-list'>
+    <view wx:for="{{hotsaleresultList}}" wx:key="{{hotsaleresultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail1'>
+      <view class='movie-content'>
+        <view class='poster'>
+          <image  src='/images/jzimg.jpg' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>工作名称：{{item.jobName}}</text>
+            <text class='desc'>工作地点:{{item.jobPlace}}</text>
+            <text class='desc'>工资薪酬:{{item.jobSalary}}</text>
+        </view>
+      </view>
+    </view>
+    </view>
+</view> 
+<view wx:if="{{hotsalenoResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view>
+    </scroll-view>
+  </swiper-item>
+</swiper> -->
+
+
+<van-tabs animated swipeable='ture'>
+  <van-tab title="推荐好物">
+    <!-- 推荐好物-->
+     <view  wx:if="{{resultListShow}}" class='search-list'>
+    <view wx:for="{{resultList}}" wx:key="{{resultList}}">
+    <van-card
+      num="{{item.GoodsNum}}"
+      tag="推荐好物"
+      price="{{item.GoodsPrice}}"
+      desc="校区:{{item.GoodsCampus}}成色:{{item.GoodsConditions}} 描述:{{item.GoodsRemark}}"
+      title="{{item.GoodsName}}"
+      thumb="{{item.imgArr[0]}}"
+      thumb-link='/pages/classify/GoodsDetail/GoodsDetail?id={{item._id}}' 
+/>
+</view>
+</view>
+<view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view>
+    <!-- <view  wx:if="{{resultListShow}}" class='search-list'>
+    <view wx:for="{{resultList}}" wx:key="{{resultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail'>
+      <view class='movie-content'>
+        <view class='poster' wx:if="{{item.imgArr<=0}}">
+          <image src="/images/kong.jpg" ></image>
+        </view>
+        <view class='poster' wx:else>
+          <image  src='{{item.imgArr[0]}}' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>物品名称：{{item.GoodsName}}</text>
+            <text class='desc'>校区：{{item.GoodsCampus}}</text>
+            <text class='desc'>成色：{{item.GoodsConditions}}</text>
+            <text class='desc'>库存：{{item.GoodsNum}}</text>
+            <text class='price'>价格：￥{{item.GoodsPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+ </view> 
+ <view wx:if="{{noResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view> -->
+  </van-tab>
+  <van-tab title="热卖">
+
+    <!-- 热卖-->
+    <view  wx:if="{{hotsaleresultListShow}}" class='search-list'>
+    <view wx:for="{{hotsaleresultList}}" wx:key="{{hotsaleresultList}}">
+    <van-card
+      num="{{item.GoodsNum}}"
+      tag="热卖"
+      price="{{item.GoodsPrice}}"
+      desc="校区:{{item.GoodsCampus}}成色:{{item.GoodsConditions}} 描述:{{item.GoodsRemark}}"
+      title="{{item.GoodsName}}"
+      thumb="{{item.imgArr[0]}}"
+      thumb-link='/pages/classify/GoodsDetail/GoodsDetail?id={{item._id}}' 
+/>
+</view>
+</view>
+<view wx:if="{{hotsalenoResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view> 
+    <!-- <view  wx:if="{{hotsaleresultListShow}}" class='search-list'>
+    <view wx:for="{{hotsaleresultList}}" wx:key="{{hotsaleresultList}}">
+    <view class='movie-wrapper' data-id='{{item._id}}' bindtap='toGoodsDetail1'>
+      <view class='movie-content'>
+        <view class='poster'>
+          <image  src='/images/jzimg.jpg' ></image>
+        </view>
+        <view class='total'>
+            <text class='name'>工作名称：{{item.jobName}}</text>
+            <text class='desc'>工作地点:{{item.jobPlace}}</text>
+            <text class='desc'>工资薪酬:{{item.jobSalary}}</text>
+        </view>
+      </view>
+    </view>
+    </view>
+</view> 
+<view wx:if="{{hotsalenoResultListShow}}" class="xiaoxiangshop-notcont" style="margin-top:10px;">
+    <view class="img">
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont" style="margin-left: 30%;">亲, 没有相关内容</text>
+</view> -->
+  </van-tab>
+</van-tabs>
+
+
+

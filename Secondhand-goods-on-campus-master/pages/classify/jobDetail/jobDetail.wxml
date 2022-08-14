@@ -1,0 +1,87 @@
+<!--pages/classify/jobDetail/jobDetail.wxml-->
+<view class='job-wrapper'>
+  <view class='job-title'>
+    <view class='jianzhi'>兼职</view>  
+  </view>
+  <view class='job-detail'>
+    <view class="five21">
+        <text class="five2_1">工作名称：</text>
+        <text class="five2_2">{{jobDetailInf.jobName}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">工作类型：</text>
+        <text class="five2_2">{{jobDetailInf.jobType}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">工作时间：</text>
+        <text class="five2_2">{{jobDetailInf.jobTime}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">工作地点：</text>
+        <text class="five2_2">{{jobDetailInf.jobPlace}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">人员要求：</text>
+        <text class="five2_2">{{jobDetailInf.jobRequir}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">薪资福利：</text>
+        <text class="five2_2">{{jobDetailInf.jobSalary}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">职位描述：</text>
+        <text class="five2_2">{{jobDetailInf.jobDescribe}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">发布者：</text>
+        <text class="five2_2">{{jobDetailInf.nickname}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">联系方式：</text>
+        <text class="five2_2">{{jobDetailInf.jobWay}}</text>
+    </view>
+    <view class="five21">
+        <text class="five2_1">发布时间：</text>
+        <text class="five2_2">{{jobDetailInf.time}}</text>
+    </view>
+   <!--  <view>工作名称：
+        <text  style="color: #666;">{{jobDetailInf.jobName}}</text>
+    </view>
+    <view>工作类型：
+      <text  style="color: #666;">{{jobDetailInf.jobType}}</text>
+    </view>
+    <view>工作时间：
+      <text  style="color: #666">{{jobDetailInf.jobTime}}</text>
+    </view>
+    <view>工作地点：
+      <text  style="color: #666">{{jobDetailInf.jobPlace}}</text>
+    </view>
+    <view>人员要求：
+      <text  style="color: #666">{{jobDetailInf.jobRequir}}</text>
+    </view>
+    <view>薪资福利：
+      <text  style="color: #666">{{jobDetailInf.jobSalary}}</text>
+    </view>
+    <view>职位描述：
+      <text  style="color: #666">{{jobDetailInf.jobDescribe}}</text>
+    </view>
+    <view>发布者：
+      <text  style="color: #666">{{jobDetailInf.nickname}}</text>
+    </view>
+    <view>联系方式：
+      <text  style="color: #666">{{jobDetailInf.jobWay}}</text>
+    </view>
+    <view>发布时间：
+      <text  style="color: #666">{{jobDetailInf.time}}</text>
+    </view> -->
+  </view>
+  <view class="seven">
+  <view class="seven1" bindtap="_contacthotel">联系卖家</view>
+  <!-- <view class="seven1" wx:else bindtap="_contacthotel">联系卖家</view> -->
+</view>
+</view>
+<view class="mask" hidden="{{contactHotel}}" bindtap="changeShowStatus">
+  <view class="contactHotel">
+    <view class="item" bindtap="copyPhone">复制联系方式</view>
+  </view>
+</view>

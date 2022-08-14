@@ -1,0 +1,91 @@
+
+<van-tabs animated swipeable='ture' bind:click="onClick">
+  <van-tab title="师生">
+  <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+  <view  class="orderDetails" wx:for="{{buydata}}" >
+  <view bindtap="goTobuydataDetail" wx:key="index"  id="{{index}}">
+    <view class="orderListTitle">
+      <text class="userName">师生-点餐订单</text>
+     <text wx:if="{{item.status == '未接单'}}"  class="orderStatus">{{item.status}}</text>
+     <text wx:elif="{{item.status == '已接单'}}" class="orderStatus1">{{item.status}}</text>
+     <text wx:else  class="orderStatus2">{{item.status}}</text>
+     </view>
+    <view class="orderListDetails">
+      <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+        <image src="/images/kong.jpg" background-size="cover"></image>
+      </view>
+      <view wx:else class="productImg">
+        <image  src="{{item.imgArr[0]}}" ></image>
+      </view>
+      <view class="productInfo">
+        <view class="productQuantity">窗口： {{item['Package_no']}}</view>
+      <view class="productQuantity">名称： {{item['Package_name']}}</view>
+      <view class="productQuantity">订单号： {{item['orderCode']}}</view>
+
+      <view class="productDate">点餐时间： {{item['BuyTimeStamp']}}</view>
+      <view class="productQuantity">校区： {{item['ptjobCampus']}}</view>
+    </view>
+    </view>
+    <!-- <view class="productCount">
+      <view>
+       <text>价格：￥{{item['GoodsPrice']}}</text>
+    </view>
+    </view> -->
+  </view>     
+  <!-- <view class="product_1">
+    <view class="product_1_1" bindtap="_modBook">修改发布信息</view>
+    <view class="product_1_2">|</view>
+    <view class="product_1_1" bindtap="bindDeleteBook" id="{{index}}">删除</view>  
+  </view> -->
+</view>   
+</scroll-view>
+  </van-tab>
+  <van-tab title="商户">
+  <scroll-view  scroll-top="{{ scrollTop }}"  scroll-y="true" style="height: 100%;">
+      <view  class="orderDetails" wx:for="{{saledata}}" >
+        <view>
+          <view class="orderListTitle">
+            <text class="userName">餐厅-点餐订单</text>
+           <text wx:if="{{item.status == '未接单'}}"  class="orderStatus">{{item.status}}</text>
+           <text wx:elif="{{item.status == '已接单'}}" class="orderStatus1">{{item.status}}</text>
+           <text wx:else  class="orderStatus2">{{item.status}}</text>
+           </view>
+          <view bindtap="goTosaleDetail"  wx:key="index"  id="{{index}}" class="orderListDetails">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="{{item.imgArr[0]}}" ></image>
+            </view>
+            <view class="productInfo">
+              <view class="productQuantity">窗口： {{item['Package_no']}}</view>
+            <view class="productQuantity">订餐人： {{item['nickName']}}</view>
+            <view class="productQuantity">订单号： {{item['orderCode']}}</view>
+            <view class="productDate">点餐时间： {{item['BuyTimeStamp']}}</view>
+            <view class="productQuantity">校区： {{item['ptjobCampus']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+        <view wx:if="{{item.status == '未接单'}}"  bindtap="determine" wx:key="index"  id="{{index}}">
+              <button   style="position: absolute;right:5px;margin-top: 2px;" size="mini" type="primary" >{{item.status}}</button>
+        </view>
+        <view wx:elif="{{item.status == '已接单'}}" bindtap="determine" wx:key="index"  id="{{index}}">
+              <button  disabled="ture" style="position: absolute;right:5px;margin-top: 2px; background-color:#c99d0f;" size="mini"  >{{item.status}}</button>
+        </view>
+        <view wx:else bindtap="determine" wx:key="index"  id="{{index}}">
+              <button  disabled="ture" style="position: absolute;right:4px;margin-top:2px;" size="mini" type="warn" >{{item.status}}</button>
+        </view>
+          </view>
+        </view>     
+      </view>   
+    </scroll-view>
+  </van-tab>
+</van-tabs>
+
+
+
+
+
+
+
+

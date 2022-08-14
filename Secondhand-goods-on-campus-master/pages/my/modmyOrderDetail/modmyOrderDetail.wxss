@@ -1,0 +1,163 @@
+/* pages/orderForm/orderForm.wxss */
+.big{
+  background-color: rgba(224, 223, 223, 0.836);
+}
+
+.one{
+  font-size: 40rpx;
+  /* margin-top: 30rpx; */
+  margin-left: 50rpx;
+  font-style: initial;
+  font-weight: bold;
+}
+.productImg{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  width: 20%;
+  height: 140rpx;
+  border-radius: 5%;
+ /*  flex: 1;
+  height: 140rpx;
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+ */
+  }
+.productImg image{
+  width: 100%;
+  height: 100%;
+  }
+
+.three{
+  display: flex;
+  background-color: white;
+  height: 200rpx;
+  margin-top: 30rpx;
+}
+/* .three image{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  width: 20%;
+  height: 140rpx;
+  border-radius: 5%;
+} */
+.threeRight{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  height: 160rpx;
+}
+.threeRight1{
+  font-size: 28rpx;
+}
+.threeRight2{
+  font-size: 20rpx;
+  color: rgb(172, 171, 171);
+}
+.threeRight4{
+  font-size: 28rpx;
+}
+
+
+.five{
+  margin-top:30rpx;
+  margin-left: 30rpx;
+ 
+}
+.five1{
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  /* margin-bottom: 40rpx; */
+  color: black;
+}
+.five2{
+  font-size: 30rpx;
+  
+  
+}
+.five21{
+  display: flex;
+  flex-direction: row;
+  margin-top: 18rpx;
+  
+}
+.five2_1{
+  display: inline-block;
+  width: 18%;
+  text-align: justify;
+  font-size: 28rpx;
+  color: rgb(121, 120, 120);
+  text-align-last: justify;
+}
+.five2_2{
+  font-size: 28rpx;
+  margin-left: 45rpx;
+  color: rgb(121, 120, 120);
+}
+.kong{
+  height:30rpx;
+}
+.kong1{
+  height:400rpx;
+}
+.seven{
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #1E68C9;
+  background-color: white;
+  align-items: center;
+  vertical-align: center;
+}
+.seven1{
+  line-height: 80rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1E68C9;
+  color: white;
+  align-items: center;
+  vertical-align: center;
+  text-align: center;
+}
+
+/* 联系内容 */
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+}
+.contactHotel{
+  width: 562rpx;
+  height: 80rpx;
+  background: white;
+  position: absolute;
+  left: 80rpx;
+  /* top: 1000rpx; */
+  bottom:150rpx;
+  /* margin: -154rpx 0 0 -281rpx; */
+  border-radius: 10rpx;
+}
+.contactHotel .item{
+  /* position: absolute;
+  left: 50%;
+  top: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}

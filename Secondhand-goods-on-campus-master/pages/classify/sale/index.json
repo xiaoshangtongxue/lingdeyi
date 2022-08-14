@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "全部分类",
+    "usingComponents": {
+      "van-card": "@vant/weapp/card/index"
+  
+    
+    }
+  
+}

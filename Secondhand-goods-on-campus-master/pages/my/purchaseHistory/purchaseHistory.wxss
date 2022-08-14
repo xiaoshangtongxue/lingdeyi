@@ -1,0 +1,103 @@
+/* pages/try/try.wxss *//* pages/evaluateDetail/evaluateDetail.wxss */
+/*切换栏*/
+.swiper-tab {
+  height: 40px;
+  line-height: 40px;
+  background: white;
+  color:rgb(117, 116, 116) ;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom:1px solid rgb(180, 176, 176);
+} 
+.swiper-tab-list {
+  margin: 0 8px;
+  font-size: 15px;
+}
+.on {
+  border-bottom:2px solid blue;
+  color: blue;
+}
+ 
+.hot-box{
+  height: 100%;
+}
+.eachEvaluate{
+  width: 98%;
+  margin: 30rpx auto;
+  min-height: 150rpx;
+  border-bottom: 1px dashed #E6E6E6; 
+   padding-bottom: 15rpx;
+} 
+/* 上面部分 */
+.above{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+}
+/* 头像 */
+ .head{
+  width: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 20rpx;
+  margin-top: 35rpx;
+}
+.head image{
+  width: 80rpx;
+  height: 80rpx;
+} 
+
+ .nameDate{
+  margin-left: 20rpx;
+  width:60%;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}
+.nameDate text:last-of-type{
+  color: #7B7B7B;
+  margin-top: 10rpx;
+} 
+
+ .score{
+  width:140rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  text-align: right;
+  margin-right: 30rpx;
+}
+.score text:first-of-type{
+  color: #C3BC78;
+  font-size: 35rpx;
+}
+.score text:last-of-type{
+  font-size: 30rpx;
+  color: #979797;
+  margin-top: 10rpx;
+}
+
+
+
+
+.xiaoxiangshop-notcont {
+  /* margin: 100rpx 100rpx; */
+  /* display: flex;*/
+  text-align: center; 
+  justify-content: center;
+}
+.xiaoxiangshop-notcont .cont {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+

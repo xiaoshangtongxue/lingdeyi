@@ -1,0 +1,29 @@
+<view class="one">
+  <text style="display:block; border-bottom: 1px solid rgba(216, 215, 215, 0.705); padding-bottom: 20rpx;">商家平台联系方式</text>
+  <view class="customInf">
+      <text>姓名：</text>
+      <text>{{detailInfo.name}}</text>
+  </view>
+  <view class="customInf">
+    <text>联系方式：</text>
+    <text>{{detailInfo.phone}}</text>
+    <text class="phone" bindtap="_contacthotel">联系</text>
+  </view>
+  <view class="customInfCode">
+    <text>微信二维码：</text>
+    <view><image src="{{detailInfo.img}}" show-menu-by-longpress="true"></image></view>
+    <view class="customInfCodeRemark">长按此图可加我微信</view>
+  </view>
+  <view class="customInfRemark">
+    <text>备注：</text>
+    <text>1.您的物品已送达;</text>
+    <text>2.联系商家平台之后，发送"我的收益"-"未到账"中已送达物品的订单详情页截图(所发截图必须包含订单号、物品送达时间).</text>
+  </view>
+</view>
+<view class="mask" hidden="{{contactHotel}}" bindtap="changeShowStatus">
+  <view class="contactHotel">
+  <view class="item line" bindtap="_dial">呼叫</view>
+  <view class="item line" bindtap="copyPhone">复制</view>
+  <view class="item" bindtap="addPhone">添加到手机通讯录</view>
+</view>
+</view>

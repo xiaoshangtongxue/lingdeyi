@@ -1,0 +1,23 @@
+<!-- <view>{{token}}</view> -->
+<!-- <button size='default' type="primary" bindtap="loginIn">点击</button> -->
+<!-- <view class="member">
+  校园-跳蚤市场
+</view> -->
+<!-- <button wx:if="{{UserInfoShow}}" open-type='getUserInfo' bindtap="getUserProfile" class="impowerBtn" style="background: #1E68C9; color: white; width: 70%; font-weight: normal;">获取您的头像昵称</button> -->
+<!-- <button bindtap="loginIn" class="impowerBtn" style="background: #286DE6; color: white; width: 70%; font-weight: normal;">授权验证</button> -->
+<view style="width: 70%; margin: 120px auto;text-align: center; ">
+  <view class="weui-cell weui-cell_select" style="margin: 20px;">
+        <!-- <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">校区</view>
+        </view> -->
+        <view class="weui-cell__bd">
+          <picker bindchange="bindGoodsCampusChange" value="{{GoodsCampusIndex}}" range="{{GoodsCampus}}">
+         
+            <view style="font-size: 20px; height: 35px;line-height: 35px; border: none;width: 200px; ">{{GoodsCampus[GoodsCampusIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <button bindtap='access'  type="primary">登录</button>
+  <!-- <van-button color="#7232dd" style="font-size: 15px;">登录</van-button> -->
+</view>
+

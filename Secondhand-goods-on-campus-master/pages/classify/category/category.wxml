@@ -1,0 +1,110 @@
+<!-- pages/index/category.wxml
+<import src="/templates/load-more.wxml" />
+<import src="templates/shop.wxml" />
+
+<view class="shop-list">
+  <template is="shop" wx:for="{{list}}" wx:key="{{seller_id}}" data="{{...item}}"></template>
+</view>
+
+<template  is="load-more" data="{{loading: loading, hasMore: hasMore, noMoreLabel: '更多商家接入中, 敬请期待'}}"></template> -->
+<!-- 产品列表 -->
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}" wx:key="itemId">
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="store_nav_cont dis-flex b-f b-b" style="margin: 10px 0;">
+      <view bindtap="switchSortType" data-type="all" class="flex-box t-c p-r" data-index="0 " id="list-{{sortType==='all'?true:0}}">
+        <text style="font-size: large;">综合</text>
+      </view>
+      <view bindtap="switchSortType" data-type="sales"  class="flex-box t-c p-r" data-index="1" id="list-{{sortType==='sales'?true:0}}">
+        <text style="font-size: large;display: none;"> 全部校区</text>
+      </view>
+      <view  bindtap="switchSortType" data-type="price" class="flex-box t-c p-r" data-index="2" id="list-{{sortType==='price'?true:0}}">
+        <text style="font-size: large;"> 价格</text>
+        <text class="iconfont icon-jiantou-copy tf-180 top_jiantou {{sortPrice?'':'active'}}"></text>
+        <text class="iconfont icon-jiantou-copy bot_jiantou {{sortPrice?'active':''}}"></text>
+      </view>
+
+      <!-- <view bindtap="toSynthesize" class="flex-box t-c p-r" data-index="sort_order" id="list-0">
+        <text>筛选 </text>
+        <text class="f-22 iconfont icon-shaixuan1 col-7" style="padding-left:2rpx"></text>
+      </view> -->
+
+    </view>
+    <view class="school dis-flex b-f b-b" style="border:none">
+    <view bindtap="switchSortType" data-type="sales" style="margin-top: -10px;" class="flex-box t-c p-r" data-index="1" id="list-{{sortType==='sales'?true:0}}">
+      <view class='list-msg2' bindtap='bindShowMsg'>
+        <text style="font-size: large;">{{school}}</text>
+        <!-- <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image> -->
+      </view>
+      <view class="select_box" wx:if="{{select}}">
+        <view class="select_one" bindtap="mySelect" data-name="大东关校区">大东关校区</view>
+        <view class="select_one" bindtap="mySelect" data-name="坞城校区">坞城校区</view>
+        <view class="select_one" bindtap="mySelect" data-name="东山校区">东山校区</view>
+        <view class="select_one" bindtap="mySelect" data-name="全部校区">全部校区</view>
+    </view>
+      </view>
+    </view>
+<view class="product">
+  <view class="product_line"></view>
+  <block wx:for="{{product}}" wx:key="_id">
+    <!-- <navigator wx:else url="/pages/shop/show?id={{seller_id}}" class="weui-media-box weui-media-box_appmsg shop__item" hover-class="weui-cell_active">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image class="weui-media-box__thumb" src="{{pic_url}}" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">{{seller_name}}</view>
+      <view class="weui-media-box__desc shop__desc">
+        <view class="shop__sales">
+          <view class="shop__star">
+            <template is="star-rate" data="{{value: overall}}" />
+          </view>
+          <view>月售 {{sales}} 单</view>
+        </view>
+
+        <view class="shop__misc weui-flex">
+          <view class="shop__fee weui-flex__item">
+            起送 ¥{{min_price}}
+          </view>
+          <text class="shop__reach-time grey-color">平均送达时间</text> |
+          <text class="shop__reach-time primary-color">{{reach_time}}分钟</text>
+        </view>
+      </view>
+      <view wx:if="{{promotion.length > 0}}" class="shop__promotion">
+        <view wx:for="{{promotion}}" wx:key="index" class="shop__promotion-item">
+          <image class="shop__promotion-icon" src="{{item.pic_url}}"></image>
+          {{item.info}}
+        </view>
+      </view>
+    </view>
+  </navigator> -->
+    <navigator class="product_item" url="../show/show?id={{item._id}}">
+      <image src="../../../images/logo.png" class="product_image"></image>
+      <view class="product_num">
+        <text style="font-size:35rpx; top: 10px;position: absolute;">{{item.placeSelect}}</text>
+        <view style="margin-top: 38px;">
+        <text class="textDesign" >发布人:{{item.nickname}}</text>
+        <text class="shop__reach-time grey-color">费用 </text> 
+        <text class="shop__reach-time primary-color">¥{{item.servePrice}}元</text>
+        <view class="timeDesign" >
+          <text class="textDesign" >联系电话:{{item.jobPhoneNumber}}</text>
+
+        </view>
+        </view>
+       <view class="timeDesign" style=" margin-top: -21px;right: 15px;">
+          <text class="shop__reach-time grey-color">送达时间</text> |
+          <text class="shop__reach-time primary-color">{{item.jobTime}}</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view wx:if="{{info}}" class="xiaoxiangshop-notcont" >
+    <view class="img" >
+      <image mode="aspectFit" src="../../../images/tabBar/no_content.png"></image>
+    </view>
+    <text class="cont">亲, 没有相关内容</text>
+  </view>

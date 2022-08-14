@@ -1,0 +1,320 @@
+<!--post.wxml-->
+<!-- 发布书本 -->
+<view class='box'>
+  <view class='wrapper'>
+    <view class="tab-content {{postGoods ? 'select' : 'noSelect'}} " bindtap='choosePostGoods'>物品发布</view>
+    <view class="tab-content {{postJob ? 'select' : 'noSelect'}}" bindtap='choosePostJob'>兼职发布</view>
+    <view class="tab-content {{postErrand ? 'select' : 'noSelect'}}" bindtap='choosePostErrand'>跑腿发布</view>
+  </view>
+</view>
+
+<!-- 发布物品 -->
+
+<view wx:if="{{postGoods}}" class='outside_border'>
+  <view class='tip'>
+    提示：请确保发布书本信息真实完整，这有利于您的商品被更多人检索到。
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel">
+      <view class="weui-cell weui-cell_input">
+        <view>
+          <view class="weui-label">物品名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" maxlength='20' placeholder="请输入物品名称" bindinput="bindGoodsNameInput" value="{{GoodsName}}" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">物品类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindGoodsTypeChange" value="{{GoodsTypeIndex}}" range="{{GoodsType}}">
+            <view class="weui-select weui-select_in-select-after">{{GoodsType[GoodsTypeIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">价格</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input"  maxlength='10'  placeholder="请输入出售价格" bindinput="bindGoodsPriceInput" value="{{GoodsPrice}}" type="digit" />
+        </view>
+      </view> 
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">校区</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindGoodsCampusChange" value="{{GoodsCampusIndex}}" range="{{GoodsCampus}}">
+            <view class="weui-select weui-select_in-select-after">{{GoodsCampus[GoodsCampusIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">成色</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindGoodsConditionsChange" value="{{GoodsConditionsIndex}}" range="{{GoodsConditions}}">
+            <view class="weui-select weui-select_in-select-after">{{GoodsConditions[GoodsConditionsIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">联系方式</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入联系方式" bindinput="bindGoodsWayInput" value="{{GoodsWay}}"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">备注</view>
+      </view>
+      <view class="weui-cell__bd">
+                <textarea class="weui-input describe_thing" bindinput="bindGoodsRemarkInput" value='{{GoodsRemark}}' placeholder="可不填"></textarea>
+      </view>
+    </view>
+       <!-- 上传 图片-->  
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">图片</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="img-list">
+          <block wx:for="{{imgList}}" wx:key="index">
+           <view class="img-li">
+            <view class="img-li" bindtap="previewImg">
+              <image class="uploading-icon" src="{{item}}"></image>
+            </view>
+            <image class="icon-delete" src="/images/delete.png" bindtap="deleteImg" data-index="{{index}}"></image>
+           </view>
+          </block>
+          <view class="img-li" wx:if="{{imgList.length<=8}}" bindtap="chooseSource">
+           <image class="uploading-icon" src="/images/jiahao.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+        
+    <!-- 上传视频 -->
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">视频</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="img-list1">
+          <view class="upload-video">
+            <block wx:if="{{src != ''}}">
+              <video src="{{src}}" class="img-li1"></video>
+              <image class="icon-deletes" src="/images/delete.png" bindtap="deleteVideo" ></image>
+            </block>
+          </view>
+         
+          <view class="img-li" wx:if="{{src == ''}}" bindtap="chooseVideo">
+            <image class="uploading-icon" src="/images/jiahao.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    </view>     
+    <button type="primary" size="default"  bindtap="bindSubmitGoods">
+      立即发布 </button>
+  </view>
+</view>
+<!-- 发布兼职 -->
+<view class='weui-panel outside_border' wx:if="{{postJob}}">
+  <view class='tip'>
+  提示：请确保发布兼职信息真实完整，若弄虚作假，欺骗学生，平台将对您做出严厉惩罚，情况严重者，将交于当地公安部门依法处置。
+  </view>
+  <view class='weui-panel'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">工作名称</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobName}}' bindinput="bindJobNameInput" placeholder="如：家教老师" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">工作类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bindjobTypeChange" value="{{jobTypeIndex}}" range="{{jobType}}">
+            <view class="weui-select weui-select_in-select-after">{{jobType[jobTypeIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">工作时间</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobTime}}' bindinput="bindJobTimeInput" placeholder="如：9月1号——10月15号" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">工作地点</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobPlace}}' bindinput="bindJobPlaceInput" placeholder="如：山西大学正门附近" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">人员要求</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobRequir}}' bindinput="bindJobRequirInput" placeholder="如：只限男生" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">薪资福利</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobSalary}}' bindinput="bindjobSalaryInput" placeholder="如：2000元/月、150元/天、50元/小时" />
+      </view>
+    </view>
+    <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入姓名" bindinput="bindpostJobNameInput" value="{{postJobName}}" />
+        </view>
+      </view> -->
+ <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" value='{{jobWay}}' bindinput="bindJobWayInput" placeholder="请输入联系方式" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">职位描述</view>
+      </view>
+      <view class="weui-cell__bd">
+        <textarea class="weui-input describe" value='{{jobDescribe}}' bindinput="bindJobDescribeInput" placeholder="如：帮助初二学生辅助英语和数学，具体时间：周六、周日下午14:00--17:00"></textarea>
+      </view>
+    </view>
+  </view>
+      <button type="primary" size="default" bindtap="bindSubmitJob">
+      立即发布 </button>
+</view>
+
+<!-- 发布跑腿 -->
+<view wx:if="{{postErrand}}" class='outside_border'>
+  <view class='tip'>
+    提示：请确保发布兼职信息真实完整，若弄虚作假，欺骗学生，平台将对您做出严厉惩罚。
+  </view>
+  <view class="weui-panel">
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">服务类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="catagoryInput" value="{{ptjobConditionIndex}}" range="{{ptjobConditions}}">
+            <view class="weui-select weui-select_in-select-after">{{ptjobConditions[ptjobConditionIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">商户选择</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="selectInput" value="{{ptplaceSelectIndex}}" range="{{ptplaceSelect}}">
+            <view class="weui-select weui-select_in-select-after">{{ptplaceSelect[ptplaceSelectIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view>
+          <view class="weui-label">需求介绍</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入您的需求信息" bindinput="bindjobNameInput" value="{{ptjobName}}" />
+        </view>
+      </view>
+ 
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">价格</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入需求物品的价格，若为快递则填0" maxlength='10' bindinput="bindjobPriceInput" value="{{ptjobPrice}}"  type="digit"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">服务费用</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入服务费用" maxlength='10' bindinput="bindjobserveInput" value="{{ptservePrice}}"  type="digit"/>
+        </view>
+      </view>
+
+
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">校区</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="schoolInput" value="{{ptjobCampusIndex}}" range="{{ptjobCampus}}">
+            <view class="weui-select weui-select_in-select-after">{{ptjobCampus[ptjobCampusIndex]}}</view>
+          </picker>
+        </view>
+      </view> 
+   
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入联系方式" bindinput="bindjobPhoneNumberInput" value="{{ptjobPhoneNumber}}" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">送达地址</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入您送达地址" bindinput="bindjobPlace" value="{{ptjobPlace}}"  />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">送达时间</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="如：2021-10-1 12:00" bindinput="bindjobTime" value="{{ptjobTime}}"  />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">备注信息</view>
+      </view>
+      <view class="weui-cell__bd">
+                <textarea class="weui-input describe_thing" value='{{ptjobDescribe}}' bindinput="bindjobDescribeInput" placeholder="请输入物品的详情"></textarea>
+      </view>
+    </view>
+
+  </view>
+  
+      <button type="primary" size="default" bindtap="bindSubmitptJob">
+      立即发布 </button>
+
+</view>

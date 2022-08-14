@@ -1,0 +1,132 @@
+/* pages/search-thing-result/search-thing-result.wxss */
+/* pages/release/release.wxss */
+
+.container {
+  position: relative;
+}
+.topnavFixed{
+  border-bottom: 0;
+  background:#FFFFFF;
+  /* overflow: hidden; */
+  position: fixed;
+  font-size: 32rpx;
+  color: #999;
+  height:90rpx;
+  line-height:90rpx;
+  padding:auto;
+  border-bottom: 3rpx solid #e6e6e6;
+  width:100%;
+  top:0rpx;
+  z-index: 1;
+}
+  .topnavAbsolute{
+    border-bottom: 0;
+    background: #FFFFFF;
+    overflow: hidden;
+    position: fixed;
+    font-size: 32rpx;
+    color: #999;
+    box-sizing: border-box;
+    height:90rpx;
+    line-height:90rpx;
+    padding:auto;
+    border-bottom: 3rpx solid #e6e6e6;
+    width:100%;
+    top:0rpx;
+    z-index: 1;
+  }
+
+.searchCenter{
+  font-size: 30rpx;
+  background:  #F1F1F1;
+  margin-top:10rpx;
+  margin-bottom:10rpx;
+  margin-left:15rpx;
+   margin-right:15rpx;
+  border-top-left-radius:32rpx;
+  border-top-right-radius:32rpx;
+  border-bottom-right-radius:32rpx;
+  border-bottom-left-radius:32rpx;
+  width:96%;
+  height:60rpx; 
+  line-height:60rpx;
+}
+  .text-center {
+    position: absolute;
+    left:20rpx;
+    margin-left: 20rpx;
+    margin-top: 16rpx;
+  }
+  .text-text{
+    left:60rpx;
+    margin-left: 70rpx;
+  }
+  .jobDetail{
+    margin-top: -100rpx;
+    width: 100%;
+  }
+
+.search-list{
+  border-bottom: 3rpx solid #e6e6e6;
+  margin-top: -110rpx;
+  width: 100%;
+}
+.movie-wrapper {
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e9e9e9;
+  box-sizing: border-box;
+}
+.movie-content {
+  display: flex;
+  flex-direction: row;
+  /* align-items: stretch; */
+  margin-top: 34rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+.movie-content .poster {
+  width: 180rpx;
+  height: 180rpx;
+}
+.movie-content .poster image{
+  width: 100%;
+  height: 100%;
+}
+.total {
+  margin-top:6rpx;
+  margin-bottom: 20rpx;
+  margin-left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-around;
+}
+.name {
+ 
+  color: #4a4a4a;
+  font-size: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desc {
+  font-size: 28rpx;
+  color: #4a4a4a;
+    
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price {
+     font-size: 32rpx;
+    color: #f40;
+    font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.bottom {
+   color: #666;
+  text-align: center;
+  font-size: 30rpx;
+}

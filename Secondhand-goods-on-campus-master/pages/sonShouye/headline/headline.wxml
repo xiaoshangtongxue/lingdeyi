@@ -1,0 +1,24 @@
+<!--pages/sonShouye/headline/headline.wxml-->
+<view class='wrapper'>
+  <view class='title'>校园头条资讯</view>
+  <view class='headline'>
+    <scroll-view scroll-y >
+      <block wx:for="{{headlineData}}"  wx:key="{{headlineData}}">
+        <view class='headline-item' wx:if="{{item.img!==''}}" data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='{{item.img}}' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+        <view class='headline-item' wx:else data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='/images/kong.jpg' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

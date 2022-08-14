@@ -1,0 +1,78 @@
+/* pages/my/MerchantPlatform/MerchantPlatform.wxss */
+  /*第一部分：订单人信息*/
+  .one{
+    margin-top: 30rpx;
+    background-color: white;
+    padding-top: 20rpx;
+    padding-left:50rpx;
+    padding-right: 30rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    min-height: 210rpx;
+    padding-bottom: 20rpx;
+  }
+  .one .customInf{
+    display: flex;
+    padding-top: 20rpx;
+    font-size: 28rpx;
+  }
+  .phone{
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    margin-left:180rpx;
+    border: 1rpx solid #c9c7c7;
+    border-radius: 35rpx;
+  }
+
+  .customInfCode{
+    padding-top: 20rpx;
+    font-size: 28rpx;
+  }
+  .customInfCode image{
+    margin-left:100rpx;
+    width:400rpx;
+    height:400rpx
+  }
+  .customInfCodeRemark{
+    margin-left:190rpx;
+    font-size: 25rpx;
+    color:red
+  }
+  .customInfRemark{
+    /* display: flex; */
+    margin-top: 50rpx;
+    padding-top: 20rpx;
+    font-size: 25rpx;
+    color:red
+  }
+  .mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .contactHotel{
+    width: 562rpx;
+    height: 309rpx;
+    background: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -154rpx 0 0 -281rpx;
+    border-radius: 10rpx;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+    /* padding-left: 40rpx; */
+  }
+  .contactHotel .item{
+    height: 103rpx;
+    line-height: 103rpx;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+  }
+  .contactHotel .item.line{
+    border-bottom: 1px solid #e7e7e7;
+  }

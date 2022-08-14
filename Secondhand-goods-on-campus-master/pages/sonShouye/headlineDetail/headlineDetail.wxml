@@ -1,0 +1,39 @@
+<!--pages/orderForm/orderForm.wxml-->
+<view class="big">
+
+  <!-- <view class="one"> {{orderFormInf.orderStatus}}({{orderFormInf.GoodsStatus}})</view> -->
+  <view class="three">
+    <view wx:if="{{newsInf.img==''}}"  class="productImg">
+      <image src="/images/kong.jpg" background-size="cover"></image>
+    </view>
+    <view wx:else class="productImg">
+      <image  src="{{newsInf.img}}" background-size="cover"></image>
+    </view>
+  </view>
+  <view class="five">
+    <view class="five1">校园头条咨询头条详情</view>
+    <view class="five2">
+      <view class="five21">
+        <text class="five2_1">标题：</text>
+        <text class="five2_2">{{newsInf['title']}}</text>
+      </view>
+      <view class="five21">
+        <text class="five2_1">发布时间：</text>
+        <text class="five2_2">{{newsInf['converSionTime']}}</text>
+      </view>
+      <view class="five21">
+        <text class="five2_1">详情链接：</text>
+        <text class="five2_2">{{newsInf['outerNet']}}</text>
+      </view>
+    </view>
+  </view>
+<view class="seven">
+  <view class="seven1" bindtap="_contacthotel">复制详情链接</view>
+</view>
+</view>
+<view class="mask" hidden="{{contactHotel}}" bindtap="changeShowStatus">
+  <view class="contactHotel">
+    <view class="item" bindtap="copyPhone">复制详情链接</view>
+  </view>
+</view>
+

@@ -1,0 +1,57 @@
+<swiper class="swiper"  indicator-dots="true" autoplay="true" interval="2000" duration="1000" circular="true">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}" wx:key="itemId">
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<van-tabs animated='ture' swipeable='ture' bind:click="onClick" >
+  <van-tab title="教师科研">
+    <view class='wrapper'>
+  <view class='headline'>
+    <scroll-view scroll-y >
+      <block wx:for="{{teacherheadlineData}}"  wx:key="{{teacherheadlineData}}">
+        <view class='headline-item' wx:if="{{item.img!==''}}" data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='{{item.img}}' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+        <view class='headline-item' wx:else data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='/images/kong.jpg' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+  </van-tab>
+  <van-tab title="学生创新">
+    <view class='wrapper'>
+  <view class='headline'>
+    <scroll-view scroll-y >
+      <block wx:for="{{studentheadlineData}}"  wx:key="{{studentheadlineData}}">
+        <view class='headline-item' wx:if="{{item.img!==''}}" data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='{{item.img}}' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+        <view class='headline-item' wx:else data-id='{{item._id}}' bindtap="_goToDetail">
+        <image src='/images/kong.jpg' class='headline-image'></image>
+        <view class='headline-cont'>
+          <view class='article-title'>{{item.title}}</view>
+          <view class='time'>发布时间:{{item.time}}</view>
+        </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+  </van-tab>
+</van-tabs>

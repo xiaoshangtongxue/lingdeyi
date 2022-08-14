@@ -1,0 +1,78 @@
+
+<view  class='total'>
+  <!-- <van-dialog id="van-dialog" /> -->
+<view style="font-size:40rpx; padding-top:30rpx; padding-left: 30rpx;">  
+  <text>确认订单</text>
+</view>
+<!-- <view class='toast-main'>
+  <view class='toast'>
+    <text >姓名：</text>
+    <input placeholder='请输入姓名' bindinput='customName' value='{{nickname}}'></input>
+  </view>
+  <view class='toast'>
+    <text>联系方式</text>
+    <input placeholder='请输入联系方式' bindinput='customPhone' value='{{pnone}}'></input>
+  </view>
+</view> -->
+<view class="one">
+  <text style="display:block; border-bottom: 1px solid rgba(216, 215, 215, 0.705); padding-bottom: 20rpx;">订单人信息</text>
+  <view class="customInf">
+      <text>姓名：</text>
+      <input type="text" placeholder="请输入姓名" maxlength='20' bindblur="_handleInputName" value="{{nickname}}"></input>
+  </view>
+  <view class="customInf">
+    <text>联系方式：</text>
+    <input type="text" placeholder="请输入联系方式" maxlength='20' bindblur="_handleInputPhone" value="{{pnone}}"></input>
+  </view>
+  <view class="customInf">
+    <text>收货地址：</text>
+    <input type="text" placeholder="请输入收货地址" maxlength='20' bindblur="_handleInputAddress" value="{{address}}"></input>
+  </view>
+</view>
+<view class="second">
+  <text style="display:block; border-bottom: 1px solid rgba(216, 215, 215, 0.705); padding-bottom: 20rpx;">物品信息</text>
+  <view  class="orderDetails" wx:for="{{orders}}" >
+        <view  wx:key="index"  id="{{index}}">
+          <view class="orderListDetails">
+            <view wx:if="{{item.imgArr<=0}}"  class="productImg">
+              <image src="/images/kong.jpg" background-size="cover"></image>
+            </view>
+            <view wx:else class="productImg">
+              <image  src="{{item.imgArr[0]}}" background-size="cover"></image>
+            </view>
+            <view class="productInfo">
+            <view class="productQuantity">物品名称： {{item['GoodsName']}}</view>
+            <view class="productDate">发布人： {{item['nickName']}}</view>
+            <view class="productQuantity">联系方式： {{item['GoodsWay']}}</view>
+          </view>
+          </view>
+          <view class="productCount">
+            数量：<text>{{ item.buyLen }}</text>
+            <view>
+             <text>价格：￥{{item['GoodsPrice']}}/件</text>
+          </view>
+          </view>
+        </view>
+</view> 
+</view>
+<view class="third">
+        <text class="paytext">支付方式</text>
+        <radio-group >
+            <label >
+                <radio bindtap="radio" class="payMethod" checked="true" value="{{item}}">{{item}}</radio>
+            </label>
+        </radio-group>
+    </view>
+<view class='kong'></view>
+  <!-- 底部操作栏 -->
+  <view class='cart-bottom'>
+    <!-- <text class='cart-allSelect'>共{{length}}件</text> -->
+    <!-- <text class='cart-allSelect'>共{{moneyNum}}件</text> -->
+    <!-- <text class='cart-allSelect'>共{{moneyNum}}件</text> -->
+    <!-- 总价 -->
+    <text class='cart-allPrice'>合计:</text>
+    <text class='allPrice'>￥{{totalPrice}}</text>
+    <button class='btn-red' bindtap='tosubmit' form-type='submit'>提交订单</button>
+  </view>
+</view>
+

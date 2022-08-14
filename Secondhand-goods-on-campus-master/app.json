@@ -1,0 +1,95 @@
+{
+
+  "pages": [
+    "pages/login/startin1",
+    "pages/shouye/shouye",
+    "pages/shoppingCart/shoppingCart",
+    "pages/my/my",
+    "pages/logs/logs",
+    "pages/index/index",
+    "pages/order/order",
+    "pages/post/post",
+    "pages/components/news/news",
+    "pages/my/mySetting/mySetting",
+    "pages/my/myPost/myPost",
+    "pages/my/myFood/myFood",
+    "pages/my/myPostDetail/myPostDetail",
+    "pages/my/myorder/myorder",
+    "pages/my/myOrderDetail/myOrderDetail",
+    "pages/my/modmyOrderDetail/modmyOrderDetail",
+    "pages/my/purchaseHistory/purchaseHistory",
+    "pages/my/myIncome/myIncome",
+    "pages/my/myIncomeDetail/myIncomeDetail",
+    "pages/my/addressAdmin/addressAdmin",
+    "pages/my/MerchantPlatform/MerchantPlatform",
+    "pages/my/myptorder/myptorder",
+    "pages/my/myptorderDetail/myptorderDetail",
+    "pages/classify/saleDetail/saleDetail",
+    "pages/classify/researchline/researchline",
+    "pages/classify/sale/index",
+    "pages/classify/show/show",
+    "pages/classify/Goods/Goods",
+    "pages/classify/Goods-search/Goods-search",
+    "pages/classify/Goods-searchResult/Goods-searchResult",
+    "pages/classify/GoodsDetail/GoodsDetail",
+    "pages/classify/job/job",
+    "pages/classify/job-search/job-search",
+    "pages/classify/job-searchResult/job-searchResult",
+    "pages/classify/jobDetail/jobDetail",
+    "pages/classify/category/category",
+    "pages/sonShouye/headline/headline",
+    "pages/sonShouye/headlineDetail/headlineDetail",
+    "pages/settlement/settlement",
+    "pages/settlementMeal/settlementMeal",
+    "pages/classify/research/research",
+    "pages/getCodeInfo/getCodeInfo"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1E68C9",
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "校园共享服务平台",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance":300
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "images/tabBar/home.png",
+        "selectedIconPath": "images/tabBar/home.fill.png"
+      },
+      {
+        "text": "购物车",
+        "pagePath": "pages/shoppingCart/shoppingCart",
+        "iconPath": "images/tabBar/shoppingCart.png",
+        "selectedIconPath": "images/tabBar/shoppingCart.fill.png"
+      },
+      {
+        "text": "发布",
+        "pagePath": "pages/post/post",
+        "iconPath": "images/tabBar/release.png",
+        "selectedIconPath": "images/tabBar/release.png"
+      },
+      {
+        "text": "订单",
+        "pagePath": "pages/my/myorder/myorder",
+        "iconPath": "images/tabBar/order.png",
+        "selectedIconPath": "images/tabBar/order.fill.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tabBar/mine.png",
+        "selectedIconPath": "images/tabBar/mine.fill.png"
+      }
+    ],
+    "color": "#000000",
+    "selectedColor": "#1E68C9"
+
+
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

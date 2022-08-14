@@ -1,0 +1,197 @@
+/* pages/shouye/shouye.wxss */
+@import '../components/news/news.wxss';
+.sousuo {
+  height: 120rpx;
+  width: 100%;
+}
+.sousuo image{
+  width: 100%;
+  height: 100%;
+}
+/* 首页的轮播图 */
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+}
+.slide-image{
+  height: 100%;
+  width: 100%;
+
+}
+
+/* 分类的类 */
+.fenlei {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 190rpx;
+  margin-top: 10rpx;
+  background-color: white;
+}
+.fenlei .navi {
+  flex-grow: 1;
+  width: 50rpx;/*此处无效，但是必须存在*/
+}
+.leibie {
+  margin-top: 18rpx;
+  width: 100%;
+  height: 70%;
+  text-align: center;
+}
+.leibie image {
+  margin: auto 0rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+}
+.leibie view{
+  font-size: 30rpx;
+  color: #666;
+  margin-top: -5rpx;
+}
+
+/* 今日推荐 */
+/* .tuijian-img {
+  position: absolute;
+  margin-top: 14rpx;
+  width: 100%;
+  height: 60rpx;
+  background: linear-gradient(to right, green , #3F7CC0  80%); 
+}
+.tuijian-img image{
+  position: absolute;
+  right: 0rpx;
+ width: 220rpx;
+  height: 60rpx;
+}
+.tuijian-cont {
+  position: absolute;
+  left: 10rpx;
+  top: 0rpx;
+  color: white;
+  font-weight: 600;
+} */
+
+/* 今日推荐 */
+/* .cont {
+  margin-top: 80rpx;
+}
+.session-page {
+  background-color: #fff;
+  border-width: 2rpx 0;
+  border-color: #e6e6e6;
+  border-style: solid;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+}
+.session-header {
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+}
+.header-title {
+  color: #4a4a4a;
+  flex: 1;
+  font-weight: 400;
+  font-size: 36rpx;
+
+}
+.header-more {
+  color: #32cd32;
+} */
+/*切换栏*/
+.swiper-tab {
+  height: 50px;
+  line-height: 50px;
+  background: #f5e4e4;
+  color: #333;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* border-bottom:1px solid rgb(180, 176, 176); */
+} 
+.swiper-tab-list {
+  margin: 0 8px;
+  font-size: 15px;
+}
+.on {
+  font-size: 36rpx;
+  color: rgb(216, 27, 27);
+}
+ 
+.hot-box{
+  height: 100%;
+}
+/*订单列表*/
+.search-list{
+  border-bottom: 3rpx solid #e6e6e6;
+
+  width: 100%;
+}
+.movie-wrapper {
+  padding: 0 30rpx;
+  border-bottom: 1px solid #e9e9e9;
+  box-sizing: border-box;
+}
+.movie-content {
+  display: flex;
+  flex-direction: row;
+  /* align-items: stretch; */
+  margin-top: 34rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+.movie-content .poster {
+  width: 180rpx;
+  height: 180rpx;
+}
+.movie-content .poster image{
+  width: 100%;
+  height: 100%;
+}
+.total {
+  margin-top:6rpx;
+  margin-bottom: 20rpx;
+  margin-left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-around;
+}
+.name {
+  color: #4a4a4a;
+  font-size: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desc {
+  font-size: 28rpx;
+  color: #4a4a4a;
+    
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price {
+     font-size: 32rpx;
+    color: #f40;
+    font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.bottom {
+   color: #666;
+  text-align: center;
+  font-size: 30rpx;
+}
